@@ -5,6 +5,19 @@ A platform that bridges the gap between restaurants with surplus food and NGOs s
 Our platform bridges the gap between restaurants with surplus food and NGOs striving to feed the underprivileged. It enables restaurants to register and post real-time food availability details, which are then instantly shared with verified NGOs in the same city via WhatsApp notifications. NGOs can view and claim these food drives through their dashboards, ensuring efficient redistribution. Each food request is closed upon acceptance to prevent duplication, and successful drives are dynamically recorded across the platform. The system includes an admin approval(checking Valid NGO Certifications/FSSAI Certificates) workflow, secure login for both parties, and onboarding emails for new users. By streamlining the donation process, we aim to reduce food wastage, promote social responsibility, and create a reliable ecosystem where every leftover meal finds a plate.
 
 
+# App Structure-
+# Home- 
+Home, About, Us, Contact Us, Register/ Login Buttons
+# NGOUser-
+Registration, Login, Logout, Dashboard
+# RestaurantUser-
+Registration, Login, Logout, Dashboard(redirect to Request Creation in **Food**
+# Food-
+Create and manage requests
+
+
+
+
 Basic System Design-
 
 
