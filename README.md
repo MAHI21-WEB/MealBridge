@@ -6,6 +6,8 @@ Our platform bridges the gap between restaurants with surplus food and NGOs stri
 
 
 Basic System Design-
+
+
 🔵 Landing Page (Public)
 
 * Home: Overview and mission
