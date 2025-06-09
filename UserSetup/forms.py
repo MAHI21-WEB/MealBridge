@@ -13,12 +13,12 @@ class RestaurantUserCreationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2']
+        fields = ['username','email', 'password1', 'password2']
     
     def save(self, commit=True):
         user=super().save(commit=False)
         user.email=self.cleaned_data['email']
-        user.is_active = False
+        user.is_approved = False
         if commit:
             user.save()
             RestaurantUser.objects.create(
@@ -46,9 +46,9 @@ class NGOUserCreationForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
     def save(self, commit=True):
-        user=super.save(commit=False)
+        user=super().save(commit=False)
         user.email=self.cleaned_data['email']
-        user.is_active = False
+        user.is_approved = False
         if commit:
             user.save()
             NGOUser.objects.create(

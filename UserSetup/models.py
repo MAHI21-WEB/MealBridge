@@ -13,6 +13,14 @@ class RestaurantUser(models.Model):
     def __str__(self):
         return self.user.username
     
+    @property
+    def username(self):
+        return self.user.username
+
+    @property
+    def email(self):
+        return self.user.email
+    
 class NGOUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     city = models.CharField(max_length=100)
@@ -24,3 +32,11 @@ class NGOUser(models.Model):
 
     def __str__(self):
         return self.user.username
+    
+    @property
+    def username(self):
+        return self.user.username
+
+    @property
+    def email(self):
+        return self.user.email

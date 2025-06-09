@@ -2,8 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import RestaurantUserCreationForm
-from .models import RestaurantUser
+from .forms import RestaurantUserCreationForm, NGOUserCreationForm
+from .models import RestaurantUser, NGOUser
 from django.http import HttpResponseRedirect
 from django.template import Context
 from django.template.loader import get_template
@@ -22,7 +22,7 @@ def register_restaurant(request):
 
 def register_ngo(request):
     if request.method=='POST' :
-        form= RestaurantUserCreationForm(request.POST, request.FILES)
+        form= NGOUserCreationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.succes(request, 'Your account has been created successfully. You shall recieve your confirmation mail shortly')
@@ -40,8 +40,11 @@ def login_user(request):
         if username and password:
             user = authenticate(request, username=username, password=password)
             if user is not None:
-                login(request, user)
-                return redirect('ngodashboard' if user.__class__.__name__ == 'NGOUser' else 'restaurantdashboard')
+                if user.is_aproved:
+                    login(request, user)
+                    return redirect('ngodashboard' if user.__class__.__name__ == 'NGOUser' else 'restaurantdashboard')
+                else:
+                    messages.error(request, 'Your account is not approved yet. Please wait for approval.')
             else:
                 messages.error(request, 'Invalid username or password')
         else:
@@ -55,4 +58,4 @@ def logout_user(request):
     return redirect('login')
 
 
-
+#dashboard view up here
