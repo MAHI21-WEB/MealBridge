@@ -16,7 +16,8 @@ class RestaurantUserCreationForm(UserCreationForm):
     
     def save(self, commit=True):
         user=super().save(commit=False)
-        user.emmail=self.cleaned_data['email']
+        user.email=self.cleaned_data['email']
+        user.is_active = False
         if commit:
             user.save()
             from .models import RestaurantUser
