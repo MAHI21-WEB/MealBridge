@@ -8,10 +8,8 @@ Our platform bridges the gap between restaurants with surplus food and NGOs stri
 # App Structure-
 # Home- 
 Home, About, Us, Contact Us, Register/ Login Buttons
-# NGOUser-
+# UserSetup-
 Registration, Login, Logout, Dashboard
-# RestaurantUser-
-Registration, Login, Logout, Dashboard(redirect to Request Creation in **Food**
 # Food-
 Create and manage requests
 

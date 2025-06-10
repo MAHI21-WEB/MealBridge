@@ -9,6 +9,7 @@ class RestaurantUser(models.Model):
     fssai_certification = models.FileField(upload_to='certifications/restaurant/')
     phoneno = models.CharField(max_length=15)
     is_approved = models.BooleanField(default=False)
+    drives_done=[]
 
     def __str__(self):
         return self.user.username
@@ -29,6 +30,7 @@ class NGOUser(models.Model):
     certification = models.FileField(upload_to='certifications/ngo/')
     phoneno = models.CharField(max_length=15)
     is_approved = models.BooleanField(default=False)
+    drives_done=[]
 
     def __str__(self):
         return self.user.username

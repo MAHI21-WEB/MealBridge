@@ -15,7 +15,6 @@ def register_restaurant(request):
             form.save()
             messages.succes(request, 'Your account has been created successfully. You shall recieve your confirmation mail shortly')
             return redirect('login')
-
     else:
         form= RestaurantUserCreationForm()
     return render(request, '**register_restaurant.html', {'form': form})

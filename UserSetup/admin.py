@@ -12,7 +12,7 @@ class RestaurantUserAdmin(admin.ModelAdmin):
             if obj.is_approved:
                 send_mail(
                    subject='Congratulations {obj.username}! Your Restaurant Account is Approved',
-                   message='Dear {obj.username},\n\nYour restaurant account has been approved. You can now log in and start using the platform.\n\nBest regards,\nMealBridge',
+                   message='Dear {obj.username},\n\nYour restaurant account has been approved. You can now log in and start using the platform.\nAll the best for your future endeavours.\n\nBest regards,\nMealBridge',
                    from_email= 'xyz@gmail.com',
                      recipient_list=[obj.email],
                 )
